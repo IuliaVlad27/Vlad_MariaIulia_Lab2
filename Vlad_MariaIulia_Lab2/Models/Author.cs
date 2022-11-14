@@ -1,9 +1,24 @@
-﻿namespace Vlad_MariaIulia_Lab2.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace Vlad_MariaIulia_Lab2.Models
 {
     public class Author
     {
-        public string AuthorID { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+        public ICollection<Book>? Books { get; set; }
     }
+
 }
+

@@ -11,7 +11,7 @@ namespace Vlad_MariaIulia_Lab2.Models
         public int ID { get; set; }
         [Display(Name = "Book Title")]
         public string Title { get; set; }
-        public string Author { get; set; }
+        
 
         [Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
@@ -22,9 +22,16 @@ namespace Vlad_MariaIulia_Lab2.Models
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; } //navigation proprety
 
-        [Display(Name ="Author")]
-        public virtual int AuthorID { get; set; }
-        public virtual Author Authors { get; set; }
+        public ICollection<BookCategory>? BookCategories { get; set; }
+
+        public int? AuthorID { get; set; }
+        public Author? Author { get; set; }
+        public int? BorrowingID { get; set; }
+        public Borrowing? Borrowing { get; set; }
+
+
+
+
     }
 }
 
